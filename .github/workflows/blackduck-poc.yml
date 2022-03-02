@@ -1,0 +1,22 @@
+name: Black Duck Scan POC
+on:
+  push:
+    branches:
+      - GA_black-duck-poc
+jobs:
+  security:
+    runs-on: my-github-runner
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Java 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: Run Synopsys Detect
+      uses: synopsys-sig/detect-action@v0.3.0
+      with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          detect-version: 7.9.0
+          blackduck-url: ${{ secrets.BLACKDUCK_URL }}
+          blackduck-api-token: ${{ secrets.BLACKDUCK_API_TOKEN }}
