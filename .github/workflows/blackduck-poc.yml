@@ -5,7 +5,7 @@ on:
       - GA_black-duck-poc-local
 jobs:
   security:
-    runs-on: my-github-runner
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Set up Java 11
