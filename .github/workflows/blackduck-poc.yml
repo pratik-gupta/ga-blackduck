@@ -2,7 +2,7 @@ name: Black Duck Scan POC
 on:
   push:
     branches:
-      - GA_black-duck-poc
+      - GA_black-duck-poc-local
 jobs:
   security:
     runs-on: my-github-runner
